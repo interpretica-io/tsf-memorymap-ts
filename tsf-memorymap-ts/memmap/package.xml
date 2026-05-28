@@ -1,0 +1,13 @@
+<?xml version="1.0" ?>
+<package version="1.0">
+    <description>Memory maps</description>
+    <author mailto="maxim.menshikov@interpretica.io" />
+    <session track_conf="silent">
+        <prologue><script name="prologue"><objective>Prepare the memmap group.</objective></script></prologue>
+        <epilogue><script name="epilogue"><objective>Finalize the memmap group.</objective></script></epilogue>
+        <run><script name="elf"><objective>Parse an ELF of any architecture.</objective></script></run>
+        <run><script name="ram"><objective>Free RAM from an image and a region.</objective></script></run>
+        <run><script name="audit"><objective>W^X audit of a binary image.</objective></script></run>
+        <run><script name="proc"><objective>The memory map of a running process.</objective></script></run>
+    </session>
+</package>
