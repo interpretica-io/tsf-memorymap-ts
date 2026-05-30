@@ -48,7 +48,7 @@ main(int argc, char **argv)
     RING("reading the map of pid %d", (int)pid);
 
     TEST_STEP("Read its memory map");
-    CHECK_RC(tapi_memmap_proc_read(sess.factory, pid, T_MS, &maps));
+    CHECK_RC(tapi_memmap_proc_read(sess.pco, pid, T_MS, &maps));
     if (te_vec_size(&maps) == 0)
         TEST_VERDICT("the process has no mappings");
     tapi_memmap_mappings_log(&maps);
@@ -98,7 +98,7 @@ main(int argc, char **argv)
     TEST_STEP("A pid that does not exist is ENOENT");
     {
         te_vec none = TE_VEC_INIT(tapi_memmap_mapping);
-        te_errno rc = tapi_memmap_proc_read(sess.factory, 999999, T_MS,
+        te_errno rc = tapi_memmap_proc_read(sess.pco, 999999, T_MS,
                                             &none);
 
         tapi_memmap_mappings_free(&none);
